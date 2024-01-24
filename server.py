@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, url_for, render_template
 import pickle
 import re
 from flask_cors import CORS
@@ -9,8 +9,10 @@ from nltk.stem import WordNetLemmatizer
 app = Flask(__name__)
 CORS(app)
 
-model = pickle.load(open('model.sav', 'rb'))
-vectorizer = pickle.load(open('vectorizer.sav', 'rb'))
+# url_for('static', filename='style.css')
+
+model = pickle.load(open('models/model.sav', 'rb'))
+vectorizer = pickle.load(open('models/vectorizer.sav', 'rb'))
 
 def preprocess_text(text):
     text = text.lower()
@@ -26,7 +28,7 @@ def preprocess_text(text):
 
 @app.route('/', methods=['GET'])
 def home():
-    return jsonify({"message": "Working!"})
+    return render_template('index.html')
 
 @app.route('/predict/', methods=['GET'])
 def predict():
