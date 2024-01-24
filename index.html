@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentiment Analysis</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        max-height: 100vh;
+        background-image: url("./cloudy.svg");
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-color: whitesmoke;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      h1 {
+      }
+
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      textarea {
+        width: 50%;
+        padding: 20px;
+      }
+
+      form {
+        text-align: center;
+      }
+
+      button {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1>Sentiment Analysis</h1>
+      <form action="">
+        <textarea
+          id="text"
+          name="text"
+          placeholder="Please enter your text to input"
+          cols="100"
+          rows="5"
+        >
+        </textarea>
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
