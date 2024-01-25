@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, url_for, render_template
 import pickle
 import re
+import os
 from flask_cors import CORS
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -11,8 +12,8 @@ CORS(app)
 
 # url_for('static', filename='style.css')
 
-model = pickle.load(open('models/model.sav', 'rb'))
-vectorizer = pickle.load(open('models/vectorizer.sav', 'rb'))
+model = pickle.load(open(os.path.abspath('models/model.sav'), 'rb'))
+vectorizer = pickle.load(open(os.path.abspath('models/vectorizer.sav'), 'rb'))
 
 def preprocess_text(text):
     text = text.lower()
