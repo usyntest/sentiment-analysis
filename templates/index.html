@@ -23,12 +23,14 @@
       }
 
       h1 {
-        color: #25467D;
+        color: #25467d;
         margin: 20px 0;
+        text-align: center;
       }
 
       h2 {
         font-size: 5rem;
+        margin-top: 0;
       }
 
       .center {
@@ -42,12 +44,12 @@
         width: 100%;
         padding: 20px;
         margin: 10px 0;
-        border: #356CB1 2px solid;
+        border: #356cb1 2px solid;
         font-size: 1rem;
       }
 
       textarea:focus {
-        border: #25467D 2px solid;
+        border: #25467d 2px solid;
       }
 
       form {
@@ -60,9 +62,21 @@
         width: 100%;
         height: 40px;
         font-size: 1.1rem;
-        background-color: #25467D;
+        background-color: #25467d;
         color: whitesmoke;
         border: none;
+      }
+
+      @media screen and (max-width: 720px) {
+        form {
+          width: 100%;
+          /* margin: 100px 0; */
+          padding: 0 10px;
+        }
+
+        h2 {
+          margin-top: 100px;
+        }
       }
     </style>
   </head>
@@ -84,25 +98,24 @@
     </div>
 
     <script>
-      let btn = document.querySelector('button')
-      let emoji = document.querySelector('h2')
-      let text = document.querySelector('#text')
+      let btn = document.querySelector("button");
+      let emoji = document.querySelector("h2");
+      let text = document.querySelector("#text");
 
-      btn.addEventListener('click', (e) => {
-        e.preventDefault()
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
         fetch(`http://127.0.0.1:5000/predict/?text=${text.value}`)
-        .then(res => res.json())
-        .then((data) => {
-          if (data['output'] == 1) {
-            emoji.innerText = "😄"
-          } else if (data['output'] == 0) {
-            emoji.innerText = "😥"
-          } else {
-            emoji.innerText = "🤡"
-          }
-        })
-      })
-
+          .then((res) => res.json())
+          .then((data) => {
+            if (data["output"] == 1) {
+              emoji.innerText = "😄";
+            } else if (data["output"] == 0) {
+              emoji.innerText = "😥";
+            } else {
+              emoji.innerText = "🤡";
+            }
+          });
+      });
     </script>
   </body>
 </html>
