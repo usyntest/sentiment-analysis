@@ -104,7 +104,7 @@
 
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        fetch(`http://127.0.0.1:5000/predict/?text=${text.value}`)
+        fetch(`{{ url_for('predict') }}?text=${text.value}`)
           .then((res) => res.json())
           .then((data) => {
             if (data["output"] == 1) {
